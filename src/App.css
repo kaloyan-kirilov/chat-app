@@ -1,0 +1,288 @@
+@font-face {
+  font-family: 'Zen Dots';
+  src: url('../src/fonts/ZenDots-Regular.woff2') format('woff2'),
+      url('../src/fonts/ZenDots-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Righteous';
+  src: url('../src/fonts/Righteous-Regular.woff2') format('woff2'),
+      url('../src/fonts/Righteous-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('../src/fonts/BarlowCondensed-Medium.woff2') format('woff2'),
+      url('../src/fonts/BarlowCondensed-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baloo 2';
+  src: url('../src/fonts/Baloo2-SemiBold.woff2') format('woff2'),
+      url('../src/fonts/Baloo2-SemiBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('../src/fonts/Exo2-SemiBold.woff2') format('woff2'),
+      url('../src/fonts/Exo2-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../src/fonts/Roboto-Regular.woff2') format('woff2'),
+      url('../src/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #D3D498 url('../src/img/background.jpg') no-repeat center / cover;
+  font-size: 2.5vh;
+}
+
+.chat-app {
+  width: 23em;
+  height: 34em;
+  background-color: hsl(238, 10%, 35%);
+  border-radius: .5em;
+  overflow: hidden;
+  margin-top: 1em;
+  border: 1px solid rgba(80, 81, 98, .85);
+}
+
+
+/* ----- Top ----- */
+.top {
+  width: 100%;
+  height: 12%;
+  background-image: linear-gradient(hsl(238, 10%, 50%), hsl(238, 10%, 35%));
+  display: flex;
+}
+
+.power-button {
+  width: 1.7em;
+  height: 1.7em;
+  background-image: linear-gradient(120deg, white, rgb(210, 210, 210));
+  border-radius: 50%;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .5em;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.power-on, .power-off:hover {
+  color: hsl(120, 100%, 35%);
+}
+
+.power-off, .power-on:hover {
+  color: hsl(0, 100%, 60%);
+}
+
+
+/* ----- Chat ----- */
+.chat {
+  width: 100%;
+  height: 74%;
+  background: hsl(222, 10%, 70%) url('../src/img/chat-bg.jpg') no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text-size {
+  font-size: 1.15em;
+}
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: .65em;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: hsl(238, 10%, 60%);
+  border-radius: 10px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(238, 10%, 35%);
+  border-radius: 10px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(238, 10%, 30%);
+}
+
+
+/* ----- Message ----- */
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  background-color: hsl(200, 80%, 50%);
+  margin-right: .3em;
+}
+.received p {
+  color: white;
+  background-color: hsl(220, 35%, 45%);
+  
+  margin-left: .3em;
+}
+
+
+/* ----- Bottom ----- */
+.bottom {
+  width: 100%;
+  height: 14%;
+  background-image: linear-gradient(hsl(238, 10%, 50%), hsl(238, 10%, 35%));
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 3%;
+  border-top: .12em solid hsl(238, 10%, 45%);
+}
+
+.emoji-icon {
+  width: 2em;
+  height: 2em;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 50%;
+  background-image: url('../src/img/emoji-icon.png');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position: left;
+  cursor: pointer;
+}
+
+.emoji-icon:hover, .emojis-active {
+  background-color: rgba(0, 0, 0, .5);
+  background-position: right;
+}
+
+.emoji-picker {
+  padding: .5em;
+  background-image: linear-gradient(hsla(240, 9%, 23%, 0.8), hsl(240, 9%, 23%));
+  border-radius: .3em;
+  cursor: default;
+  user-select: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: .2em;
+}
+
+input {
+  width: 63%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-radius: .25em;
+  padding: 0 .75em;
+  font-family: 'Roboto';
+  font-size: .75em;
+}
+
+.send-button {
+  width: 22%;
+  height: 100%;
+  background-color: hsl(45, 80%, 60%);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: .25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo 2';
+  font-size: 1em;
+  letter-spacing: .25px;
+  color: hsl(225, 50%, 30%);
+  border: .11em solid rgba(255, 255, 255, .75);
+}
+
+.send-button:hover {
+  background-color: hsl(45, 95%, 68%);
+  color: hsl(225, 50%, 33%);
+}
+
+
+/* ----- Footer ----- */
+.footer-text {
+  text-align: center;
+  font-family: 'Exo 2';
+  font-size: .95em;
+  color: hsl(325, 40%, 50%);
+  margin: .5em;
+}
+
+.footer-text a {
+  color: inherit;
+  text-decoration-color: inherit;
+}
+
+.footer-text a:hover {
+  color: #551a8e;
+  text-decoration-color: #551a8e;
+}
+
+
+/* ----- Media Queries ----- */
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    font-size: 3.5vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 5vw;
+  }
+
+  .chat-app {
+    width: 90vw;
+    height: 149vw;
+  }
+
+  .welcome-text-size {
+    font-size: 1em;
+  }
+
+  input {
+    width: 60%;
+  }
+
+  .send-button {
+    letter-spacing: 0;
+  }
+
+  .footer-text {
+    font-size: .85em;
+  }
+}
