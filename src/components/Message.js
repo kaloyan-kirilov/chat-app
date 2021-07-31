@@ -27,7 +27,7 @@ const bubble = {
     padding: '.7em .8em',
     fontFamily: 'Roboto',
     fontSize: '.85em',
-    maxWidth: '14em',
+    maxWidth: '13em',
     wordWrap: 'break-word'
 }
 
