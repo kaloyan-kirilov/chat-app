@@ -1,6 +1,6 @@
 import PowerOff from "./PowerOff";
 import PowerOn from "./PowerOn";
-import logo from "../logo.svg";
+import logo from "../logo.png";
 
 function Top({ signIn, signOut, currentUser, user }) {
     return (
